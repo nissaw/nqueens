@@ -89,8 +89,9 @@ window.countNRooksSolutions = function(n) {
 
 // return a matrix (an array of arrays) representing a single nxn chessboard, with n queens placed such that none of them can attack each other
 window.findNQueensSolution = function(n) {
-  var solution;
+
   var solutionBoard = new Board({n:n});
+  var solution = solutionBoard.rows();
   var findSolution = function(row) {
     // define base case
       // increment and return solution count
@@ -112,8 +113,7 @@ window.findNQueensSolution = function(n) {
       }
       // take piece off the board.
       solutionBoard.togglePiece(row, i);
-    };
-    
+    };    
   }
 
   findSolution(0);
